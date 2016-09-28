@@ -14,8 +14,9 @@ public class RealmController {
     private static RealmController instance;
     private final Realm realm;
 
-    public RealmController(Context context) {
-        Realm.setDefaultConfiguration(new RealmConfiguration.Builder(context).build());
+    private RealmController(Context context) {
+        Realm.init(context);
+        Realm.setDefaultConfiguration(new RealmConfiguration.Builder().build());
         realm = Realm.getDefaultInstance();
     }
 
